@@ -10,7 +10,7 @@ let UpgradeCostGoldStorage = calculateUpgradeCostGoldStorage();
 let ElixirStorageLevel = parseInt(localStorage.getItem('elixirStorageLevel')) || 1;
 let UpgradeCostElixirStorage = calculateUpgradeCostElixirStorage();
 
-// let gems =
+
 let gold = Math.min(parseFloat(localStorage.getItem('gold')) || 0, maxGold);
 let elixir = Math.min(parseFloat(localStorage.getItem('elixir')) || 0, maxElixir);
 let darkelixir = Math.min(parseFloat(localStorage.getItem('darkelixir')) || 0, maxDarkElixir);
@@ -45,18 +45,18 @@ const buildingNames = [
 ];
 
 function updateElixir() {
-  const roundedElixir = elixir.toFixed(0); // Round elixir to two decimal places
+  const roundedElixir = elixir.toFixed(0);
   document.getElementById('elixir').innerText = `${roundedElixir} (max: ${maxElixir})`;
 
 }
 function updateGold() {
-  const roundedGold = gold.toFixed(0); // Round gold to two decimal places
+  const roundedGold = gold.toFixed(0); 
   document.getElementById('gold').innerText = `${roundedGold} (max: ${maxGold})`;
 
 }
 
 function updateDarkelixir() {
-  const roundedDarkelixir = darkelixir.toFixed(0); // Round darkelixir to two decimal places
+  const roundedDarkelixir = darkelixir.toFixed(0); 
   document.getElementById('darkelixir').innerText = `${roundedDarkelixir} (max: ${maxDarkElixir})`;
 }
 function updateGems() {
@@ -92,11 +92,8 @@ function updateUpgradeCostElixirStorage() {
 
 
 
-
-// Initialize manualGoldAmount outside the function
 const manualGoldAmount = 100;
 
-// Update the UI with the initial value
 document.getElementById('addGoldManually').innerText = `${manualGoldAmount} `;
 
 function addGoldManually() {
@@ -104,7 +101,7 @@ function addGoldManually() {
   updateGold();
   localStorage.setItem('gold', gold);
   
-  // Update the UI
+  
   const mga = manualGoldAmount;
   document.getElementById('addGoldManually').innerText = `${mga} `;
 }
@@ -112,15 +109,13 @@ function addGoldManually() {
 
 const manualElixirAmount = 80;
 
-// Update the UI with the initial value
 document.getElementById('addElixirManually').innerText = `${manualElixirAmount} `;
 
 function addElixirManually() {
   elixir = Math.min(elixir + manualElixirAmount, maxElixir);
   updateElixir();
   localStorage.setItem('elixir', elixir);
-  
-  // Update the UI
+ 
   const mea = manualElixirAmount;
   document.getElementById('addElixirManually').innerText = `${mea} `;
 }
@@ -129,10 +124,10 @@ function addElixirManually() {
 
 
 function generateResources() {
-  // Adjust the power factor as needed for a balanced game
-  const goldPowerFactor = 1.7; // You can adjust this value
-  const elixirPowerFactor = 1.5; // You can adjust this value
-  const darkElixirPowerFactor = 1.3; // You can adjust this value
+  
+  const goldPowerFactor = 1.7; 
+  const elixirPowerFactor = 1.5; 
+  const darkElixirPowerFactor = 1.3; 
 
   const totalGoldGeneration = Math.pow(buildingLevel, goldPowerFactor) * 15;
   const totalElixirGeneration = Math.pow(buildingLevel, elixirPowerFactor) * 10;
@@ -189,9 +184,8 @@ function calculateUpgradeCostGoldStorage() {
 
 function upgradeGoldStorage() {
   if (elixir >= UpgradeCostGoldStorage) {
-    // Calculate the upgrade factor based on the goldStorageLevel
+    
     const upgradeFactor = 2.5
-    // Calculate the new maxGold based on the upgrade factor
     maxGold = goldStorageLevel * 300 * upgradeFactor;
     
     elixir -= UpgradeCostGoldStorage;
@@ -220,10 +214,9 @@ function calculateUpgradeCostElixirStorage() {
 function upgradeelixirStorage() {
   if (gold >= UpgradeCostElixirStorage) {
 
-   // Calculate the upgrade factor based on the ElixirStorageLevel
 const upgradeFactor = 2.5
 
-// Calculate the new maxElixir based on the upgrade factor
+
 maxElixir = ElixirStorageLevel * 300 * upgradeFactor ;
 
     gold -= UpgradeCostElixirStorage;

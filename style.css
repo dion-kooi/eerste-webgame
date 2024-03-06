@@ -1,6 +1,6 @@
 body {
   font-family: Arial, sans-serif;
-  background-image: url("/foto's/Starry\ night\ Image.png");
+  background-image: url("foto's/Starry\ night\ Image.png");
 
     margin: 0;
     background-size: cover;
@@ -112,9 +112,7 @@ color: white;
 
 }
 
-.upgrade-container {
 
-}
 
 .upgrade-button {
   width: 230px;
